@@ -272,7 +272,7 @@ const trackName=document.getElementById("trackName")
 const tracklist=document.getElementById("tracklist")
 const startScreen=document.getElementById("startScreen")
 
-function startPlayer(){
+function startPlayer(⏹️){
 startScreen.classList.add("hidden")
 loadTrack(⏹️)
 audio.play(▶️)
@@ -290,22 +290,22 @@ highlight()
 
 function togglePlay(){
 if(audio.paused){
-audio.play()
+audio.play(▶️)
 cd.classList.add("spin")
 }else{
-audio.pause()
+audio.pause(⏹️)
 cd.classList.remove("spin")
 }
 }
 
-function nextTrack(){
+function nextTrack(⏩){
 current=(current+1)%tracks.length
 loadTrack(current)
-audio.play()
+audio.play(▶️)
 cd.classList.add("spin")
 }
 
-function prevTrack(){
+function prevTrack(⏪){
 current=(current-1+tracks.length)%tracks.length
 loadTrack(current)
 audio.play()
@@ -325,7 +325,7 @@ div.className="track"
 div.innerText=t.name
 div.onclick=()=>{
 loadTrack(i)
-audio.play()
+audio.play(▶️)
 cd.classList.add("spin")
 }
 tracklist.appendChild(div)
