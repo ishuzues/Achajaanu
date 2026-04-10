@@ -44,7 +44,7 @@ body{
 
 .player{
   background:#d9d9d9;
-  width:400px;
+  width:300px;
   border-radius:10px;
   padding:20px;
   box-shadow:0 10px 30px rgba(0,0,0,0.2);
@@ -149,13 +149,14 @@ body{
 }
 
 </style></head><body><div id="startScreen" class="start-screen">
-<h1>A playlist for you ♡</h1>
+<h1>hi baby</h1>
 <button class="start-btn" onclick="startPlayer()">Press Play</button>
 </div><div class="player"><div class="cd-slot">
 <div id="cd" class="cd"></div>
 </div><div id="trackName" class="track-name">Loading...</div><div class="controls">
 <button onclick="prevTrack()">Prev</button>
-<button onclick="togglePlay()">Play / Pause</button>
+<button onclick="PlayTrack()">Play</button>
+<button onclick="pausetrack()">pause</button>
 <button onclick="nextTrack()">Next</button>
 </div><div id="tracklist" class="tracklist"></div></div><audio id="audio"></audio>
 <tracks.forEach((t,i)=>
@@ -199,6 +200,10 @@ file:"https://files.catbox.moe/bk64bh.mp3",
 name:"mainbhulgayi",
 file:"https://files.catbox.moe/e9oybc.mp3",
 }, 
+{
+name:"ye bhi yaad nahi ab",
+file:"https://files.catbox.moe/7xw1kf.mp3",
+},   
 ];
 
 let current=0
