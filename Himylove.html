@@ -161,8 +161,18 @@ ilysm pretty loser<3</h1>
 <button onclick="toggleLoop()">loop</button>  
 </div><div id="tracklist" class="tracklist"></div></div><audio id="audio" preload="none"></audio>
 <tracks.forEach((t,i)=>
-<audio.addEventListener(nextTrack)>
+<audio.addEventListener(nextTrack)> 
 <script>
+
+<input 
+type="range" 
+id="progressBar"
+value="0"
+min="0"
+max="100"
+step="1"
+onclick="seekTrack()"
+>   
 
 const tracks=[
 {
@@ -243,6 +253,7 @@ file:"https://files.catbox.moe/ve3xiz.mp3",
 let current=0
 
 const audio=document.getElementById("audio")
+const progressBar=document.getElementById("progressBar")  
 const cd=document.getElementById("cd")
 const trackName=document.getElementById("trackName")
 const tracklist=document.getElementById("tracklist")
@@ -301,7 +312,23 @@ btn.style.background = "#E8FBE8"
 else{
 btn.style.background = "#FADADD"
 }}
+  
+audio.addEventListener("timeupdate", function(){
+let progress =
+(audio.currentTime / audio.duration) * 100
 
+progressBar.value = progress
+
+})
+
+function seekTrack(){
+
+let seekTime =
+(audio.duration * progressBar.value) / 100
+
+audio.currentTime = seekTime
+}
+  
 function highlight(){
 const all=document.querySelectorAll(".track")
 all.forEach((el,i)=>{
