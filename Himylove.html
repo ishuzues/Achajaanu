@@ -158,8 +158,7 @@ ilysm pretty loser<3</h1>
 <button onclick="prevTrack()">Prev</button>
 <button onclick="playTrack()">Play</button>
 <button onclick="nextTrack()">Next</button>
-<button id="loopBtn" onclick="toggleLoop()">loop</button> 
-<button onclick="shuffleTrack()"></button>  
+<button onclick="toggleLoop()">loop</button>  
 </div><div id="tracklist" class="tracklist"></div></div><audio id="audio" preload="none"></audio>
 <tracks.forEach((t,i)=>
 <audio.addEventListener(nextTrack)>
@@ -291,6 +290,17 @@ cd.classList.add("spin")
 audio.addEventListener("ended", function(){
 nextTrack()
 })
+
+function toggleLoop(){
+audio.loop = !audio.loop
+let btn = document.getElementById("loopBtn")
+
+if(audio.loop){
+btn.style.background = "#E8FBE8"
+}
+else{
+btn.style.background = "#FADADD"
+}}
 
 function highlight(){
 const all=document.querySelectorAll(".track")
