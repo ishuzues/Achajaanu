@@ -148,6 +148,19 @@ body{
   display:none;
 }
 
+#progressBar{
+width:100px;
+display:block;
+margin:10px auto;
+accent-color:#E3F2FF;
+}
+
+#timeDisplay{
+text-align:center;
+font-size:14px;
+color:#666;
+  }  
+
 </style></head><body><div id="startScreen" class="start-screen">
 <h1>hi baby,
 ilysm pretty loser<3</h1>
@@ -167,7 +180,8 @@ min="0"
 max="100"
 step="1"
 onclick="seekTrack()"
->     
+>
+<p id="timeDisplay">0:00 / 0:00</p>  
 </div><div id="tracklist" class="tracklist"></div></div><audio id="audio" preload="none"></audio>
 <tracks.forEach((t,i)=>
 <audio.addEventListener(nextTrack)> 
