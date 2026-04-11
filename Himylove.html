@@ -4,16 +4,41 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Achajaanu</title><style>
-body{
-  background:#ffd9e6;
-  font-family:Arial, Helvetica, sans-serif;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
-  margin:0;
+body {
+  background: #ffd9e6;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
+.stars {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(#FFD6E8 1px, transparent 1px),
+    radial-gradient(#CDE7FF 1px, transparent 1px);
+
+  background-size:
+    60px 60px,
+    90px 90px,
+    120px 120px;
+
+  animation: twinkle 6s infinite linear;
+}
+ @keyframes twinkle {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+ } 
 .start-screen{
   position:fixed;
   inset:0;
@@ -161,25 +186,6 @@ font-size:14px;
 color:#666;
   } 
 
-.stars{
-position:fixed;
-width:100%;
-height:100%;
-top:0;
-left:0;
-pointer-events:none;
-background-image:
-radial-gradient(white 1px, transparent 1px),
-radial-gradient(#FFD6E8 1px, transparent 1px),
-radial-gradient(#CDE7FF 1px, transparent 1px);
-
-background-size:
-60px 60px,
-90px 90px,
-120px 120px;
-
-animation: twinkle 6s infinite linear;
-}
 
 @keyframes twinkle{
 
@@ -293,7 +299,7 @@ file:"https://files.catbox.moe/ykgqgg.mp3",
 {name:"ly3000",
 file:"https://files.catbox.moe/z49h61.mp3",
 },
-{name:"glueson",
+{name:"gluesong",
 file:"https://files.catbox.moe/sr9qkx.mp3",
 },
 {name:"myloveallmine",
