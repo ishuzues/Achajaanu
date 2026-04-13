@@ -211,7 +211,7 @@ ilysm pretty loser<3</h1>
 <div id="cd" class="cd"></div>
 </div><div id="trackName" class="track-name">Loading...</div><div class="controls">
 <button onclick="prevTrack()">Prev</button>
-<button onclick="playTrack()">Play</button>
+<button onclick="toggleplay()">Play</button>
 <button onclick="nextTrack()">Next</button>
 <button onclick="toggleLoop()">loop</button>  
 <input 
@@ -316,11 +316,12 @@ const cd=document.getElementById("cd")
 const trackName=document.getElementById("trackName")
 const tracklist=document.getElementById("tracklist")
 const startScreen=document.getElementById("startScreen")
+  
 
 function startPlayer(){
 startScreen.classList.add("hidden")
-loadTrack()
 audio.play()
+loadTrack(0)  
 cd.classList.add("spin")
 }
 
