@@ -325,6 +325,16 @@ cd.classList.remove("spin")
 }
 }
 
+function playTrack(){
+
+  if(!audio.src){
+    loadTrack(0)  
+  }
+
+  audio.play()
+  cd.classList.add("spin")
+  }
+
 
 function nextTrack(){
 current=(current+1)%tracks.length
