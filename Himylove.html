@@ -311,14 +311,21 @@ audio.play()
 cd.classList.add("spin")  
 }  
   
-function loadTrack(i){  
-current=i  
-const t=tracks[i]  
-audio.src=t.file  
-cd.style.backgroundImage=`url(${t.cover})`  
-trackName.innerText=t.name  
-highlight()  
-}  
+function loadTrack(i){
+current=i
+const t=tracks[i]
+
+audio.src=t.file
+
+audio.addEventListener("loadeddata", function(){
+  audio.play()
+  cd.classList.add("spin")
+}, { once:true })
+
+cd.style.backgroundImage=`url(${t.cover})`
+trackName.innerText=t.name
+highlight()
+  }
   
 function togglePlay(){  
 if(audio.paused){  
