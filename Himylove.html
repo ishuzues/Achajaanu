@@ -1,424 +1,433 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Achajaanu</title><style>
-body {
-  background: #ffd9e6;
-  font-family: Arial, Helvetica, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
-
- @keyframes twinkle {
-  0% { opacity: 0.7; }
-  50% { opacity: 1; }
-  100% { opacity: 0.7; }
- } 
-.start-screen{
-  position:fixed;
-  inset:0;
-  background:#ffd9e6;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  z-index:10;
-}
-
-.start-screen h1{
-  margin-bottom:20px;
-}
-
-.start-btn{
-  background:#ff9fbc;
-  border:none;
-  padding:14px 22px;
-  border-radius:10px;
-  font-size:16px;
-  cursor:pointer;
-}
-
-.start-btn:hover{
-  background:#ff7ea6;
-}
-
-.player{
-  background:#E8FBE8;
-  width:300px;
-  border-radius:10px;
-  padding:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.2);
-  text-align:center;
-}
-
-.cd-slot{
-  background:#bbb;
-  border-radius:12px;
-  padding:20px;
-  margin-bottom:20px;
-}
-
-.cd{
-  width:170px;
-  height:170px;
-  border-radius:50%;
-  margin:auto;
-  background-size:cover;
-  background-position:center;
-  position:relative;
-  box-shadow:
-    inset 0 0 25px rgba(0,0,0,0.35),
-    0 6px 15px rgba(0,0,0,0.25);
-}
-
-/* shiny reflection */
-.cd::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:50%;
-  background:linear-gradient(120deg, rgba(255,255,255,0.35), rgba(255,255,255,0) 40%);
-  pointer-events:none;
-}
-
-/* center hole of CD */
-.cd::after{
-  content:"";
-  position:absolute;
-  width:26px;
-  height:26px;
-  background:#9e9e9e;
-  border-radius:50%;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  box-shadow:inset 0 0 6px rgba(0,0,0,0.6);
-}
-
-.spin{
-  animation:spin 4s linear infinite;
-}
-
-@keyframes spin{
-  from{transform:rotate(0deg)}
-  to{transform:rotate(360deg)}
-}
-
-.track-name{
-  font-size:16px;
-  margin-bottom:15px;
-}
-
-.controls button{
-  background:#BFEFFF;
-  border:none;
-  padding:10px 14px;
-  margin:5px;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:bold;
-}
-
-.controls button:hover{
-  background:#E0F2FF;
-}
-
-.tracklist{
-  margin-top:15px;
-  max-height:200px;
-  overflow-y:auto;
-  text-align:left;
-}
-
-.track{
-  padding:6px;
-  cursor:pointer;
-  border-radius:6px;
-}
-
-.track:hover{
-  background:#F3E8FF;
-}
-
-.active{
-  background:#ffb3cc;
-}
-
-.hidden{
-  display:none;
-}
-
-#progressBar{
-width:250px;
-display:block;
-margin:10px auto;
-accent-color:#E3F2FF;
-}
-
-#timeDisplay{
-text-align:center;
-font-size:14px;
-color:#666;
-  } 
-
-
-@keyframes twinkle{
-
-0%{
-opacity:0.6;
-}
-
-50%{
-opacity:1;
-}
-
-100%{
-opacity:0.6;
-}
-
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>Achajaanu</title><style>  
+body {  
+  background: #ffd9e6;  
+  font-family: Arial, Helvetica, sans-serif;  
+  display: flex;  
+  justify-content: center;  
+  align-items: center;  
+  height: 100vh;  
+  margin: 0;  
 }  
-
-</style></head><body><div id="startScreen" class="start-screen">
-<h1>hi baby,
-ilysm pretty loser<3</h1>
-<button class="start-btn" onclick="startPlayer()">Press Play</button>
-</div><div class="player"><div class="cd-slot">
-<div id="cd" class="cd"></div>
-</div><div id="trackName" class="track-name">Loading...</div><div class="controls">
-<button onclick="prevTrack()">Prev</button>
-<button onclick="playTrack()">Play</button>
-<button onclick="nextTrack()">Next</button>
-<button onclick="toggleLoop()">loop</button>  
-<input 
-type="range" 
-id="progressBar"
-value="0"
-min="0"
-max="100"
-step="1"
-onclick="seekTrack()"
->
-<p id="timeDisplay">0:00 / 0:00</p>  
-</div><div id="tracklist" class="tracklist"></div></div><audio id="audio" preload="none"></audio>
-<tracks.forEach((t,i)=>
-<audio.addEventListener(nextTrack)> 
-<script>
-
-
-
-const tracks=[
-{
-name:"Moon",
-file:"https://files.catbox.moe/gm3zzd.mp3",
-cover:"https://drive.google.com/uc?export=view&id=1rudtId55sLh28uJIXLG2pqoJAhxsLhwo",  
-},
-{
-name:"Pyrite",
-file:"https://files.catbox.moe/ev3ruc.mp3",
-cover:"https://drive.google.com/uc?export=view&id=1rudtId55sLh28uJIXLG2pqoJAhxsLhwo",
-},
-{
-name:"White ferrari",
-file:"https://files.catbox.moe/qkqx3d.mp3",
-cover:"https://drive.google.com/uc?export=view&id=1rudtId55sLh28uJIXLG2pqoJAhxsLhwo",
-},
-{
-name:"Soft spot",
-file:"https://files.catbox.moe/9lo0jp.mp3",
-cover:"https://drive.google.com/uc?export=view&id=1rudtId55sLh28uJIXLG2pqoJAhxsLhwo",
-}, 
-{
-name:"Risk it all",
-file:"https://files.catbox.moe/gupu8w.mp3",
-cover:"https://drive.google.com/uc?export=view&id=1rudtId55sLh28uJIXLG2pqoJAhxsLhwo",
+  
+.stars {  
+  position: fixed;  
+  width: 100%;  
+  height: 100%;  
+  top: 0;  
+  left: 0;  
+  pointer-events: none;  
+  
+  background-image:  
+    radial-gradient(white 1px, transparent 1px),  
+    radial-gradient(#FFD6E8 1px, transparent 1px),  
+    radial-gradient(#CDE7FF 1px, transparent 1px);  
+  
+  background-size:  
+    60px 60px,  
+    90px 90px,  
+    120px 120px;  
+  
+  animation: twinkle 6s infinite linear;  
+}  
+ @keyframes twinkle {  
+  0% { opacity: 0.7; }  
+  50% { opacity: 1; }  
+  100% { opacity: 0.7; }  
+ }   
+.start-screen{  
+  position:fixed;  
+  inset:0;  
+  background:#ffd9e6;  
+  display:flex;  
+  justify-content:center;  
+  align-items:center;  
+  flex-direction:column;  
+  z-index:10;  
+}  
+  
+.start-screen h1{  
+  margin-bottom:20px;  
+}  
+  
+.start-btn{  
+  background:#ff9fbc;  
+  border:none;  
+  padding:14px 22px;  
+  border-radius:10px;  
+  font-size:16px;  
+  cursor:pointer;  
+}  
+  
+.start-btn:hover{  
+  background:#ff7ea6;  
+}  
+  
+.player{  
+  background:#E8FBE8;  
+  width:300px;  
+  border-radius:10px;  
+  padding:20px;  
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);  
+  text-align:center;  
+}  
+  
+.cd-slot{  
+  background:#bbb;  
+  border-radius:12px;  
+  padding:20px;  
+  margin-bottom:20px;  
+}  
+  
+.cd{  
+  width:170px;  
+  height:170px;  
+  border-radius:50%;  
+  margin:auto;  
+  background-size:cover;  
+  background-position:center;  
+  position:relative;  
+  box-shadow:  
+    inset 0 0 25px rgba(0,0,0,0.35),  
+    0 6px 15px rgba(0,0,0,0.25);  
+}  
+  
+/* shiny reflection */  
+.cd::before{  
+  content:"";  
+  position:absolute;  
+  inset:0;  
+  border-radius:50%;  
+  background:linear-gradient(120deg, rgba(255,255,255,0.35), rgba(255,255,255,0) 40%);  
+  pointer-events:none;  
+}  
+  
+/* center hole of CD */  
+.cd::after{  
+  content:"";  
+  position:absolute;  
+  width:26px;  
+  height:26px;  
+  background:#9e9e9e;  
+  border-radius:50%;  
+  top:50%;  
+  left:50%;  
+  transform:translate(-50%,-50%);  
+  box-shadow:inset 0 0 6px rgba(0,0,0,0.6);  
+}  
+  
+.spin{  
+  animation:spin 4s linear infinite;  
+}  
+  
+@keyframes spin{  
+  from{transform:rotate(0deg)}  
+  to{transform:rotate(360deg)}  
+}  
+  
+.track-name{  
+  font-size:16px;  
+  margin-bottom:15px;  
+}  
+  
+.controls button{  
+  background:#BFEFFF;  
+  border:none;  
+  padding:10px 14px;  
+  margin:5px;  
+  border-radius:8px;  
+  cursor:pointer;  
+  font-weight:bold;  
+}  
+  
+.controls button:hover{  
+  background:#E0F2FF;  
+}  
+  
+.tracklist{  
+  margin-top:15px;  
+  max-height:200px;  
+  overflow-y:auto;  
+  text-align:left;  
+}  
+  
+.track{  
+  padding:6px;  
+  cursor:pointer;  
+  border-radius:6px;  
+}  
+  
+.track:hover{  
+  background:#F3E8FF;  
+}  
+  
+.active{  
+  background:#ffb3cc;  
+}  
+  
+.hidden{  
+  display:none;  
+}  
+  
+#progressBar{  
+width:250px;  
+display:block;  
+margin:10px auto;  
+accent-color:#E3F2FF;  
+}  
+  
+#timeDisplay{  
+text-align:center;  
+font-size:14px;  
+color:#666;  
+  }   
+  
+  
+@keyframes twinkle{  
+  
+0%{  
+opacity:0.6;  
+}  
+  
+50%{  
+opacity:1;  
+}  
+  
+100%{  
+opacity:0.6;  
+}  
+  
+}    
+  
+</style></head><body><div id="startScreen" class="start-screen">  
+<h1>hi baby,  
+ilysm pretty loser<3</h1>  
+<button class="start-btn" onclick="startPlayer()">Press Play</button>  
+</div><div class="player"><div class="cd-slot">  
+<div id="cd" class="cd"></div>  
+</div><div id="trackName" class="track-name">Loading...</div><div class="controls">  
+<button onclick="prevTrack()">Prev</button>  
+<button onclick="playTrack()">Play</button>  
+<button onclick="nextTrack()">Next</button>  
+<button onclick="toggleLoop()">loop</button>    
+<input   
+type="range"   
+id="progressBar"  
+value="0"  
+min="0"  
+max="100"  
+step="1"  
+onclick="seekTrack()"  
+>  
+<p id="timeDisplay">0:00 / 0:00</p>    
+</div><div id="tracklist" class="tracklist"></div></div><audio id="audio" preload="none"></audio>  
+<tracks.forEach((t,i)=>  
+<audio.addEventListener(nextTrack)>   
+<script>  
+  
+  
+  
+const tracks=[  
+{  
+name:"Moon",  
+file:"https://files.catbox.moe/gm3zzd.mp3",  
+cover:"https://drive.google.com/uc?export=view&id=1rudtId55sLh28uJIXLG2pqoJAhxsLhwo",    
 },  
-{
-name:"Coffee",
-file:"https://files.catbox.moe/ct5lqf.mp3",
-cover:"https://drive.google.com/uc?export=view&id=1rudtId55sLh28uJIXLG2pqoJAhxsLhwo",
-},
-{
-name:"Moon rises",
-file:"https://files.catbox.moe/bk64bh.mp3",
-cover:"https://drive.google.com/uc?export=view&id=1rudtId55sLh28uJIXLG2pqoJAhxsLhwo",
-}, 
-{
-name:"mainbhulgayi",
-file:"https://files.catbox.moe/e9oybc.mp3",
-cover:"https://drive.google.com/uc?export=view&id=1rudtId55sLh28uJIXLG2pqoJAhxsLhwo",
-}, 
-{
-name:"ye bhi yaad nahi ab",
-file:"https://files.catbox.moe/7xw1kf.mp3",
-cover:"https://drive.google.com/uc?export=view&id=1rudtId55sLh28uJIXLG2pqoJAhxsLhwo",
-},
-{name:"Jhonny",
-file:"https://files.catbox.moe/wk7ef1.mp3",
-cover:"https://drive.google.com/uc?export=view&id=1rudtId55sLh28uJIXLG2pqoJAhxsLhwo",
-},
-{name:"cry",
-file:"https://files.catbox.moe/vmt3d3.mp3",
-},
-{name:"perfect",
-file:"https://files.catbox.moe/lwyb5c.mp3",
-},
-{name:"bestpart",
-file:"https://files.catbox.moe/vkqxk6.mp3",
-},
-{name:"saturn",
-file:"https://files.catbox.moe/vuyb4k.mp3",
-},
-{name:"uhh",
-file:"https://files.catbox.moe/ykgqgg.mp3",
-},
-{name:"ly3000",
-file:"https://files.catbox.moe/z49h61.mp3",
-},
-{name:"gluesong",
-file:"https://files.catbox.moe/sr9qkx.mp3",
-},
-{name:"myloveallmine",
-file:"https://files.catbox.moe/ve3xiz.mp3",
-},     
-];
-
-let current=0
-
-const audio=document.getElementById("audio")
-const progressBar=document.getElementById("progressBar") 
-const timeDisplay =document.getElementById("timeDisplay")  
-const cd=document.getElementById("cd")
-const trackName=document.getElementById("trackName")
-const tracklist=document.getElementById("tracklist")
-const startScreen=document.getElementById("startScreen")
+{  
+name:"Pyrite",  
+file:"https://files.catbox.moe/ev3ruc.mp3",  
+cover:"https://drive.google.com/uc?export=view&id=1rudtId55sLh28uJIXLG2pqoJAhxsLhwo",  
+},  
+{  
+name:"White ferrari",  
+file:"https://files.catbox.moe/qkqx3d.mp3",  
+cover:"https://drive.google.com/uc?export=view&id=1rudtId55sLh28uJIXLG2pqoJAhxsLhwo",  
+},  
+{  
+name:"Soft spot",  
+file:"https://files.catbox.moe/9lo0jp.mp3",  
+cover:"https://drive.google.com/uc?export=view&id=1rudtId55sLh28uJIXLG2pqoJAhxsLhwo",  
+},   
+{  
+name:"Risk it all",  
+file:"https://files.catbox.moe/gupu8w.mp3",  
+cover:"https://drive.google.com/uc?export=view&id=1rudtId55sLh28uJIXLG2pqoJAhxsLhwo",  
+},    
+{  
+name:"Coffee",  
+file:"https://files.catbox.moe/ct5lqf.mp3",  
+cover:"https://drive.google.com/uc?export=view&id=1rudtId55sLh28uJIXLG2pqoJAhxsLhwo",  
+},  
+{  
+name:"Moon rises",  
+file:"https://files.catbox.moe/bk64bh.mp3",  
+cover:"https://drive.google.com/uc?export=view&id=1rudtId55sLh28uJIXLG2pqoJAhxsLhwo",  
+},   
+{  
+name:"mainbhulgayi",  
+file:"https://files.catbox.moe/e9oybc.mp3",  
+cover:"https://drive.google.com/uc?export=view&id=1rudtId55sLh28uJIXLG2pqoJAhxsLhwo",  
+},   
+{  
+name:"ye bhi yaad nahi ab",  
+file:"https://files.catbox.moe/7xw1kf.mp3",  
+cover:"https://drive.google.com/uc?export=view&id=1rudtId55sLh28uJIXLG2pqoJAhxsLhwo",  
+},  
+{name:"Jhonny",  
+file:"https://files.catbox.moe/wk7ef1.mp3",  
+cover:"https://drive.google.com/uc?export=view&id=1rudtId55sLh28uJIXLG2pqoJAhxsLhwo",  
+},  
+{name:"cry",  
+file:"https://files.catbox.moe/vmt3d3.mp3",  
+},  
+{name:"perfect",  
+file:"https://files.catbox.moe/lwyb5c.mp3",  
+},  
+{name:"bestpart",  
+file:"https://files.catbox.moe/vkqxk6.mp3",  
+},  
+{name:"saturn",  
+file:"https://files.catbox.moe/vuyb4k.mp3",  
+},  
+{name:"uhh",  
+file:"https://files.catbox.moe/ykgqgg.mp3",  
+},  
+{name:"ly3000",  
+file:"https://files.catbox.moe/z49h61.mp3",  
+},  
+{name:"gluesong",  
+file:"https://files.catbox.moe/sr9qkx.mp3",  
+},  
+{name:"myloveallmine",  
+file:"https://files.catbox.moe/ve3xiz.mp3",  
+},       
+];  
   
-
-function startPlayer(){
-startScreen.classList.add("hidden")
-audio.play()
-loadTrack(0)  
-cd.classList.add("spin")
-}
-
-function loadTrack(i){
-current=i
-const t=tracks[i]
-audio.src=t.file
-cd.style.backgroundImage=`url(${t.cover})`
-trackName.innerText=t.name
-highlight()
-}
-loadTrack(0)
-
-function togglePlay(){
-if(audio.paused){
-audio.play()
-cd.classList.add("spin")
-}else{
-audio.pause()
-cd.classList.remove("spin")
-}
-}
-
-function playTrack(){
-
-  if(!audio.src){
-    loadTrack(0)  
-  }
-
-  audio.play()
-  cd.classList.add("spin")
-  }
-
-
-function nextTrack(){
-current=(current+1)%tracks.length
-loadTrack(current)
-audio.play()
-cd.classList.add("spin")
-}
-
-function prevTrack(){
-current=(current-1+tracks.length)%tracks.length
-loadTrack(current)
-audio.play()
-cd.classList.add("spin")
-}
-audio.addEventListener("ended", function(){
-nextTrack()
-})
-
-function toggleLoop(){
-audio.loop = !audio.loop
-let btn = document.getElementById("loopBtn")
-
-if(audio.loop){
-btn.style.background = "#E8FBE8"
-}
-else{
-btn.style.background = "#FADADD"
-}}
+let current=0  
   
-audio.addEventListener("timeupdate", function(){
-
-if(audio.duration){
-
-let progress =
-(audio.currentTime / audio.duration) * 100
-
-progressBar.value = progress
-
-let current =
-formatTime(audio.currentTime)
-
-let total =
-formatTime(audio.duration)
-
-timeDisplay.innerText =
-current + " / " + total
-
-}
-
-})
-
-function seekTrack(){
-let seekTime =
-(audio.duration * progressBar.value) / 100
-audio.currentTime = seekTime
-}
-
-function formatTime(seconds){
-let mins = Math.floor(seconds / 60)
-let secs = Math.floor(seconds % 60)
-if(secs < 10){
-secs = "0" + secs
-}
-return mins + ":" + secs
+const audio=document.getElementById("audio")  
+const progressBar=document.getElementById("progressBar")   
+const timeDisplay =document.getElementById("timeDisplay")    
+const cd=document.getElementById("cd")  
+const trackName=document.getElementById("trackName")  
+const tracklist=document.getElementById("tracklist")  
+const startScreen=document.getElementById("startScreen")  
+  
+function startPlayer(){  
+startScreen.classList.add("hidden")  
+loadTrack()  
+audio.play()  
+cd.classList.add("spin")  
 }  
   
-function highlight(){
-const all=document.querySelectorAll(".track")
-all.forEach((el,i)=>{
-el.classList.toggle("active",i===current)
-})
-}
-
-tracks.forEach((t,i)=>{
-const div=document.createElement("div")
-div.className="track"
-div.innerText=t.name
-div.onclick=()=>{
-loadTrack(i)
-audio.play()
-cd.classList.add("spin")
-}
-tracklist.appendChild(div)
-})
-
-</script></body>
+function loadTrack(i){  
+current=i  
+const t=tracks[i]  
+audio.src=t.file  
+cd.style.backgroundImage=`url(${t.cover})`  
+trackName.innerText=t.name  
+highlight()  
+}  
+  
+function togglePlay(){  
+if(audio.paused){  
+audio.play()  
+cd.classList.add("spin")  
+}else{  
+audio.pause()  
+cd.classList.remove("spin")  
+}  
+}  
+  
+function nextTrack(){  
+current=(current+1)%tracks.length  
+loadTrack(current)  
+audio.play()  
+cd.classList.add("spin")  
+}  
+  
+function prevTrack(){  
+current=(current-1+tracks.length)%tracks.length  
+loadTrack(current)  
+audio.play()  
+cd.classList.add("spin")  
+}  
+audio.addEventListener("ended", function(){  
+nextTrack()  
+})  
+  
+function toggleLoop(){  
+audio.loop = !audio.loop  
+let btn = document.getElementById("loopBtn")  
+  
+if(audio.loop){  
+btn.style.background = "#E8FBE8"  
+}  
+else{  
+btn.style.background = "#FADADD"  
+}}  
+    
+audio.addEventListener("timeupdate", function(){  
+  
+if(audio.duration){  
+  
+let progress =  
+(audio.currentTime / audio.duration) * 100  
+  
+progressBar.value = progress  
+  
+let current =  
+formatTime(audio.currentTime)  
+  
+let total =  
+formatTime(audio.duration)  
+  
+timeDisplay.innerText =  
+current + " / " + total  
+  
+}  
+  
+})  
+  
+function seekTrack(){  
+let seekTime =  
+(audio.duration * progressBar.value) / 100  
+audio.currentTime = seekTime  
+}  
+  
+function formatTime(seconds){  
+let mins = Math.floor(seconds / 60)  
+let secs = Math.floor(seconds % 60)  
+if(secs < 10){  
+secs = "0" + secs  
+}  
+return mins + ":" + secs  
+}    
+    
+function highlight(){  
+const all=document.querySelectorAll(".track")  
+all.forEach((el,i)=>{  
+el.classList.toggle("active",i===current)  
+})  
+}  
+  
+tracks.forEach((t,i)=>{  
+const div=document.createElement("div")  
+div.className="track"  
+div.innerText=t.name  
+div.onclick=()=>{  
+loadTrack(i)  
+audio.play()  
+cd.classList.add("spin")  
+}  
+tracklist.appendChild(div)  
+})  
+  
+</script></body>  
 </html>
+
+
