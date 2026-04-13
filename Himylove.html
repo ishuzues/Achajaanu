@@ -225,8 +225,6 @@ onclick="seekTrack()"
 >  
 <p id="timeDisplay">0:00 / 0:00</p>    
 </div><div id="tracklist" class="tracklist"></div></div><audio id="audio" preload="none"></audio>  
-<tracks.forEach((t,i)=>  
-<audio.addEventListener(nextTrack)>   
 <script>  
   
   
@@ -319,7 +317,7 @@ const startScreen=document.getElementById("startScreen")
   
 function startPlayer(){  
 startScreen.classList.add("hidden")  
-loadTrack()  
+loadTrack(0)  
 audio.play()  
 cd.classList.add("spin")  
 }  
