@@ -304,12 +304,17 @@ const trackName=document.getElementById("trackName")
 const tracklist=document.getElementById("tracklist")  
 const startScreen=document.getElementById("startScreen")  
   
-function startPlayer(){  
-startScreen.classList.add("hidden")  
-loadTrack(0)  
-audio.play()  
-cd.classList.add("spin")  
-}  
+function startPlayer(){
+startScreen.classList.add("hidden")
+
+loadTrack(0)
+
+audio.addEventListener("loadeddata", function(){
+  audio.play()
+  cd.classList.add("spin")
+}, { once:true })
+
+}
   
 function loadTrack(i){
 current=i
